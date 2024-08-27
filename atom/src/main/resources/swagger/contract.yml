@@ -1,0 +1,45 @@
+openapi: 3.0.3
+info:
+  title: Swagger Ola mundo - OpenAPI 3.0
+  description: Sou a descricao
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.11
+servers:
+  - url: https://petstore3.swagger.io/api/v3
+tags:
+  - name: helloworld
+    description: Ola mundooo
+paths:
+  /helloworld:
+    get:
+      tags:
+        - helloworld
+      summary: Diga ola mundo
+      description: Vou dizer ola mundo
+      operationId: helloworldola
+      parameters:
+        - name: nome
+          in: query
+          description: nome da pessoa
+          required: true
+          explode: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespostaResponse'
+
+components:
+  schemas:
+    RespostaResponse:
+      type: object
+      properties:
+        texto:
+          type: string
+          example: "hello world, rodrigo"
