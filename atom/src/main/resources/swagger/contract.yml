@@ -11,6 +11,8 @@ servers:
 tags:
   - name: helloworld
     description: Ola mundooo
+  - name: conta
+    description: Conjunto de operacoes envolvendo conta
 paths:
   /helloworld:
     get:
@@ -34,6 +36,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RespostaResponse'
+  /conta:
+    post:
+      tags:
+        - conta
+      summary: Criacao de conta
+      description: Criacao de conta corrente
+      operationId: criarConta
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContaRequest'
+      responses:
+        '200':
+          description: resposta em caso de sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContaResponse'
 
 components:
   schemas:
@@ -43,3 +64,24 @@ components:
         texto:
           type: string
           example: "hello world, rodrigo"
+    ContaRequest:
+      type: object
+      properties:
+        numero:
+          type: string
+          example: "000021"
+        cpf:
+          type: string
+          example: "033872113"
+    ContaResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 10001
+        numero:
+          type: string
+          example: "000021"
+        cpf:
+          type: string
+          example: "033872113"

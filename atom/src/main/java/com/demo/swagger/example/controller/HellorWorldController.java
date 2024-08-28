@@ -7,10 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("helloworld")
 public class HellorWorldController implements HelloworldApi {
 
-    @GetMapping
     @Override
     public ResponseEntity<RespostaResponse> helloworldola(@RequestParam String nome) {
         RespostaResponse response = new RespostaResponse().texto("Olá, " + nome);
