@@ -55,8 +55,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ContaResponse'
-      security:
-        - basicAuth: [ ]
 
 components:
   schemas:
@@ -87,7 +85,3 @@ components:
         cpf:
           type: string
           example: "033872113"
-  securitySchemes:
-    basicAuth:
-      type: http
-      scheme: basic

@@ -1,0 +1,57 @@
+openapi: 3.0.3
+info:
+  title: Swagger camel - OpenAPI 3.0
+  description: Sou a descricao
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.11
+servers:
+  - url: https://petstore3.swagger.io/api/v3
+tags:
+  - name: contas
+    description: Contas
+paths:
+  /conta:
+    post:
+      tags:
+        - contas
+      summary: Criacao de conta
+      description: Criacao de conta
+      operationId: criacaoConta
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContaRequest'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContaResponse'
+
+components:
+  schemas:
+    ContaRequest:
+      type: object
+      properties:
+        numero:
+          type: string
+          example: "000021"
+        cpf:
+          type: string
+          example: "033872113"
+    ContaResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 10001
+        numero:
+          type: string
+          example: "000021"
+        cpf:
+          type: string
+          example: "033872113"
